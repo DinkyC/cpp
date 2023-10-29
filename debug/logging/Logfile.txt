@@ -1,0 +1,2 @@
+﻿2023-07-06 12:23:43.976 DEBUG [29009] [main@19] main() called
+2023-07-06 12:23:43.976 DEBUG [29009] [getUserInput@7] getUserInput() called

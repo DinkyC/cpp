@@ -1,0 +1,16 @@
+#include <iostream>
+// AVOID THIS
+int value { 5 }; // global variable
+
+int main()
+{
+    int value { 7 }; // hides the global variable value
+    ++value; // increments local value, not global value
+
+    --(::value); // decrements global value, not local value (parenthesis for readabilit)
+
+    std::cout << "local variable value: " << value << std::endl;
+    std::cout << "global variable value: " << ::value << std::endl;
+
+    return 0;
+} // local value is destroyed
