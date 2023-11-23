@@ -4,23 +4,26 @@
 #include <string>
 #include <type_traits>
 #include <vector>
-void knuth(std::vector<std::string> x) {
+template<typename T>
+void knuth(std::vector<T> x) {
   int length = static_cast<int>(x.size());
-
-  // seed the random number generater with time
-  std::srand(time(NULL));
-  // generate a random number
-  int r = rand() % length;
-
-  // swap randomly selected element to the back of the vector
-  std::swap(x[r], x.back());
+  for (int i = 0; i < (length-1); i++) {
+      // generate a random number
+      int r = rand() % length;
+      
+      // swap randomly selected element to the back of the vector
+      std::swap(x[static_cast<std::vector<std::string>::size_type>(r)], x.back());
+  }
 
   // print the results
   std::cout << x.back();
 }
 
 int main() {
-  std::vector<std::string> test = {"hello", "friend"};
-  knuth(test);
+  std::vector<std::string> test = {"hello", "friend", "yo", "fuck"};
+  // seed the random number generater with time
+  std::srand((unsigned)time(NULL));
+
+  knuth<std::string>(test);
   return 0;
 }
